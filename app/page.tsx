@@ -1,9 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { lazy } from "react";
+import dynamic from "next/dynamic";
 
 // Comment this line to significantly reduce the "/" root's First Load JS.
-const DynamicHeavy = lazy(() => import("./DynamicHeavy"));
+// const DynamicHeavy = lazy(() => import("./DynamicHeavy"));
+const DynamicHeavy = dynamic(() => import("./DynamicHeavy"), { ssr: false });
 
 export default function Home() {
   return (
